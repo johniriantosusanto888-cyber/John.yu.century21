@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Susanto — Konsultan Properti Jabodetabek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141210;
+    --ink-2:#1d1a17;
+    --paper:#ede6d8;
+    --paper-dim:#c9bfab;
+    --brass:#b3894f;
+    --brass-bright:#d4ab6f;
+    --brick:#6f3527;
+    --line: rgba(237,230,216,0.16);
+    --line-strong: rgba(237,230,216,0.32);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .display{font-family:'Fraunces', serif;}
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+
+  a{color:inherit;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:linear-gradient(to bottom, rgba(20,18,16,0.92), rgba(20,18,16,0));
+    padding:22px 0;
+  }
+  nav.wrap{display:flex; align-items:center; justify-content:space-between;}
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-size:19px; letter-spacing:0.02em;}
+  .brand .mark{
+    width:26px;height:26px;border:1px solid var(--brass-bright);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono';font-size:11px;color:var(--brass-bright);
+  }
+  nav ul{list-style:none; display:flex; gap:34px; font-size:13.5px;}
+  nav a{text-decoration:none; opacity:0.78; transition:opacity .2s;}
+  nav a:hover{opacity:1;}
+  .nav-cta{
+    border:1px solid var(--line-strong); padding:9px 18px; font-size:13px;
+    text-decoration:none; transition:border-color .2s, background .2s;
+  }
+  .nav-cta:hover{border-color:var(--brass-bright); background:rgba(179,137,79,0.1);}
+  @media (max-width:760px){ nav ul{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items:stretch;
+  }
+  .hero-copy{
+    display:flex; flex-direction:column; justify-content:center;
+    padding: 140px 0 80px;
+    position:relative; z-index:2;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--brass-bright); display:flex; align-items:center; gap:12px; margin-bottom:28px;
+  }
+  .eyebrow::before{content:''; width:34px; height:1px; background:var(--brass-bright);}
+  h1{
+    font-weight:400; font-size:clamp(40px, 5.4vw, 74px); line-height:1.02; letter-spacing:-0.01em;
+    max-width:600px;
+  }
+  h1 em{font-style:italic; font-weight:300; color:var(--brass-bright);}
+  .lede{
+    margin-top:26px; max-width:460px; font-size:16.5px; line-height:1.65; color:var(--paper-dim);
+  }
+  .hero-actions{ margin-top:44px; display:flex; align-items:center; gap:26px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--brass-bright); color:var(--ink); text-decoration:none;
+    padding:15px 30px; font-size:14px; font-weight:600; letter-spacing:0.01em;
+    display:inline-flex; align-items:center; gap:10px;
+    transition:transform .25s ease, background .25s ease;
+  }
+  .btn-primary:hover{ background:#e6c084; transform:translateX(3px);}
+  .btn-secondary{
+    text-decoration:none; font-size:14px; color:var(--paper); opacity:0.85; display:flex; align-items:center; gap:8px;
+    border-bottom:1px solid var(--line-strong); padding-bottom:3px;
+  }
+  .btn-secondary:hover{ opacity:1; border-color:var(--brass-bright);}
+
+  .hero-figure{
+    position:relative;
+    overflow:hidden;
+    background:#000;
+  }
+  .hero-figure img{
+    width:100%; height:100%; object-fit:cover; object-position:top center;
+    filter: grayscale(1) contrast(1.08) brightness(0.92);
+    display:block;
+  }
+  .hero-figure::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(to right, var(--ink) 0%, rgba(20,18,16,0) 14%),
+               linear-gradient(to top, rgba(20,18,16,0.75) 0%, rgba(20,18,16,0) 32%);
+  }
+  .hero-figure .cardline{
+    position:absolute; bottom:32px; left:32px; right:32px; z-index:3;
+    display:flex; justify-content:space-between; align-items:flex-end;
+    font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--paper-dim);
+    letter-spacing:0.05em; border-top:1px solid var(--line); padding-top:14px;
+  }
+  .cardline strong{ display:block; font-family:'Fraunces'; font-size:20px; color:var(--paper); font-style:normal; letter-spacing:0; margin-bottom:2px;}
+
+  @media (max-width: 900px){
+    .hero{ grid-template-columns:1fr; }
+    .hero-figure{ height:52vh; order:-1; }
+    .hero-copy{ padding:118px 0 60px; }
+    .hero-figure::after{ background:linear-gradient(to top, var(--ink) 0%, rgba(20,18,16,0.15) 55%, rgba(20,18,16,0) 90%); }
+  }
+
+  /* ---------- TICKER ---------- */
+  .ticker{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:16px 0; overflow:hidden; background:var(--ink-2);
+  }
+  .ticker-track{
+    display:flex; gap:48px; white-space:nowrap; animation:scroll 32s linear infinite;
+    font-family:'IBM Plex Mono'; font-size:12.5px; letter-spacing:0.08em; color:var(--paper-dim);
+  }
+  .ticker-track span{display:flex; align-items:center; gap:48px;}
+  .ticker-track span::after{content:'—'; color:var(--brass); margin-left:48px;}
+  @keyframes scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{ padding:120px 0; position:relative; }
+  .sec-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:56px; gap:24px; flex-wrap:wrap;}
+  .sec-num{ font-family:'IBM Plex Mono'; font-size:12px; color:var(--brass-bright); letter-spacing:0.12em;}
+  h2{ font-family:'Fraunces'; font-weight:400; font-size:clamp(28px,3.4vw,42px); letter-spacing:-0.01em; margin-top:8px;}
+  .sec-desc{ max-width:340px; font-size:14.5px; color:var(--paper-dim); line-height:1.6; text-align:right;}
+  @media(max-width:700px){ .sec-desc{text-align:left;} }
+
+  /* ---------- LISTINGS LEDGER (property types) ---------- */
+  .ledger{ border-top:1px solid var(--line-strong); }
+  .ledger-row{
+    display:grid; grid-template-columns: 70px 1fr 1fr 40px;
+    align-items:center; padding:30px 0; border-bottom:1px solid var(--line);
+    transition:background .25s ease;
+  }
+  .ledger-row:hover{ background:rgba(179,137,79,0.05); }
+  .ledger-row .idx{ font-family:'IBM Plex Mono'; color:var(--paper-dim); font-size:13px; }
+  .ledger-row .name{ font-family:'Fraunces'; font-size:26px; font-weight:400; }
+  .ledger-row .desc{ font-size:14px; color:var(--paper-dim); line-height:1.55; padding-right:20px;}
+  .ledger-row .arrow{ font-size:20px; color:var(--brass-bright); text-align:right; transition:transform .25s ease;}
+  .ledger-row:hover .arrow{ transform:translateX(6px); }
+  @media(max-width:700px){
+    .ledger-row{ grid-template-columns:36px 1fr; row-gap:10px; }
+    .ledger-row .desc{ grid-column:2/3; padding-right:0;}
+    .ledger-row .arrow{ display:none; }
+  }
+
+  /* ---------- TRANSACTION TYPE ---------- */
+  .modes{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line-strong); border:1px solid var(--line-strong);}
+  .mode-card{ background:var(--ink); padding:44px 40px;}
+  .mode-card .tag{ font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--brass-bright); letter-spacing:0.14em; text-transform:uppercase;}
+  .mode-card h3{ font-family:'Fraunces'; font-weight:400; font-size:32px; margin:16px 0 14px;}
+  .mode-card p{ color:var(--paper-dim); font-size:14.5px; line-height:1.6; max-width:340px;}
+  @media(max-width:700px){ .modes{grid-template-columns:1fr;} }
+
+  /* ---------- COVERAGE MAP LIST ---------- */
+  .coverage-wrap{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap:80px; align-items:start;}
+  .region-list{ display:flex; flex-direction:column; }
+  .region{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 0; border-bottom:1px solid var(--line);
+    font-family:'Fraunces'; font-size:20px;
+  }
+  .region .tag2{ font-family:'IBM Plex Mono'; font-size:11px; color:var(--paper-dim); letter-spacing:0.08em;}
+  .coverage-note{
+    background:var(--ink-2); border:1px solid var(--line);
+    padding:36px; font-size:14.5px; line-height:1.7; color:var(--paper-dim);
+  }
+  .coverage-note strong{ color:var(--paper); font-weight:500;}
+  .coverage-note .brass-dot{ color:var(--brass-bright); }
+  @media(max-width:800px){ .coverage-wrap{grid-template-columns:1fr; gap:40px;} }
+
+  /* ---------- CTA / CONTACT ---------- */
+  .contact{
+    background:var(--ink-2);
+    border-top:1px solid var(--line-strong);
+  }
+  .contact-inner{
+    padding:110px 0;
+    display:grid; grid-template-columns:1.2fr 0.8fr; gap:60px; align-items:end;
+  }
+  .contact h2{ max-width:520px; }
+  .contact .lede2{ margin-top:20px; color:var(--paper-dim); font-size:15px; max-width:440px; line-height:1.65;}
+  .contact-card{
+    border:1px solid var(--line-strong); padding:38px;
+  }
+  .contact-card .label{ font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.12em; color:var(--paper-dim); text-transform:uppercase;}
+  .contact-card .phone{
+    font-family:'Fraunces'; font-size:30px; margin:10px 0 26px; color:var(--brass-bright);
+    text-decoration:none; display:block;
+  }
+  .contact-card .btn-primary{ width:100%; justify-content:center; }
+  @media(max-width:800px){ .contact-inner{grid-template-columns:1fr;} }
+
+  footer{
+    padding:38px 0; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-size:12.5px; color:var(--paper-dim);
+    font-family:'IBM Plex Mono';
+  }
+  @media(max-width:600px){ footer{flex-direction:column; gap:10px;} }
+
+  ::selection{ background:var(--brass-bright); color:var(--ink); }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand"><span class="mark">JS</span> John Susanto</div>
+    <ul>
+      <li><a href="#kategori">Kategori</a></li>
+      <li><a href="#transaksi">Beli / Sewa</a></li>
+      <li><a href="#wilayah">Wilayah</a></li>
+    </ul>
+    <a class="nav-cta" href="https://wa.me/6281210301455" target="_blank" rel="noopener">Hubungi via WA</a>
+  </nav>
+</header>
+
+<section class="hero wrap" style="padding:0; max-width:none;">
+  <div class="hero-copy wrap">
+    <div class="eyebrow">Konsultan Properti — Jabodetabek</div>
+    <h1>Rumah, ruko, apartment, <em>&amp; gudang.</em><br>Ditangani langsung.</h1>
+    <p class="lede">Satu kontak untuk seluruh kebutuhan properti Anda di Jabodetabek — beli atau sewa, saya bantu dari pencarian sampai serah terima kunci.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://wa.me/6281210301455" target="_blank" rel="noopener">Chat WhatsApp Sekarang →</a>
+      <a class="btn-secondary" href="tel:+6281210301455">+62 812-1030-1455</a>
+    </div>
+  </div>
+  <div class="hero-figure">
+    <img src="john-susanto.jpg" alt="John Susanto, konsultan properti">
+    <div class="cardline">
+      <div><strong>John Susanto</strong>Konsultan Properti Independen</div>
+      <div>Jakarta, ID</div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>RUMAH &nbsp;·&nbsp; RUKO &nbsp;·&nbsp; APARTMENT &nbsp;·&nbsp; GUDANG &nbsp;·&nbsp; BELI &nbsp;·&nbsp; SEWA &nbsp;·&nbsp; JAKARTA UTARA &nbsp;·&nbsp; SELATAN &nbsp;·&nbsp; BARAT &nbsp;·&nbsp; PUSAT &nbsp;·&nbsp; TIMUR &nbsp;·&nbsp; BOGOR &nbsp;·&nbsp; DEPOK &nbsp;·&nbsp; TANGERANG &nbsp;·&nbsp; BEKASI</span>
+    <span>RUMAH &nbsp;·&nbsp; RUKO &nbsp;·&nbsp; APARTMENT &nbsp;·&nbsp; GUDANG &nbsp;·&nbsp; BELI &nbsp;·&nbsp; SEWA &nbsp;·&nbsp; JAKARTA UTARA &nbsp;·&nbsp; SELATAN &nbsp;·&nbsp; BARAT &nbsp;·&nbsp; PUSAT &nbsp;·&nbsp; TIMUR &nbsp;·&nbsp; BOGOR &nbsp;·&nbsp; DEPOK &nbsp;·&nbsp; TANGERANG &nbsp;·&nbsp; BEKASI</span>
+  </div>
+</div>
+
+<section id="kategori" class="wrap">
+  <div class="sec-head">
+    <div>
+      <div class="sec-num">01 — Pilihan Properti</div>
+      <h2>Empat jenis properti, satu pintu masuk</h2>
+    </div>
+    <p class="sec-desc">Setiap kategori ditangani dengan pendekatan yang berbeda — dari legalitas rumah tinggal sampai zonasi komersial.</p>
+  </div>
+
+  <div class="ledger">
+    <div class="ledger-row">
+      <div class="idx">01</div>
+      <div class="name">Rumah</div>
+      <div class="desc">Hunian keluarga — siap huni maupun renovasi, lengkap dengan cek legalitas dan estimasi biaya balik nama.</div>
+      <div class="arrow">↗</div>
+    </div>
+    <div class="ledger-row">
+      <div class="idx">02</div>
+      <div class="name">Ruko</div>
+      <div class="desc">Properti usaha di jalur komersial — cocok untuk kantor, toko, atau investasi sewa jangka panjang.</div>
+      <div class="arrow">↗</div>
+    </div>
+    <div class="ledger-row">
+      <div class="idx">03</div>
+      <div class="name">Apartment</div>
+      <div class="desc">Unit siap pakai di lokasi strategis, untuk tempat tinggal pribadi maupun disewakan kembali.</div>
+      <div class="arrow">↗</div>
+    </div>
+    <div class="ledger-row">
+      <div class="idx">04</div>
+      <div class="name">Gudang</div>
+      <div class="desc">Ruang penyimpanan dan logistik dengan akses kendaraan besar, untuk kebutuhan usaha dan distribusi.</div>
+      <div class="arrow">↗</div>
+    </div>
+  </div>
+</section>
+
+<section id="transaksi" class="wrap" style="padding-top:0;">
+  <div class="sec-head">
+    <div>
+      <div class="sec-num">02 — Jenis Transaksi</div>
+      <h2>Beli untuk memiliki, sewa untuk fleksibilitas</h2>
+    </div>
+  </div>
+  <div class="modes">
+    <div class="mode-card">
+      <div class="tag">Kepemilikan</div>
+      <h3>Beli</h3>
+      <p>Pendampingan penuh mulai dari survei lokasi, negosiasi harga, sampai proses AJB dan balik nama sertifikat.</p>
+    </div>
+    <div class="mode-card">
+      <div class="tag">Jangka Pendek — Panjang</div>
+      <h3>Sewa</h3>
+      <p>Pilihan sewa tahunan maupun jangka pendek, dengan draf perjanjian yang jelas bagi penyewa dan pemilik.</p>
+    </div>
+  </div>
+</section>
+
+<section id="wilayah" class="wrap">
+  <div class="sec-head">
+    <div>
+      <div class="sec-num">03 — Cakupan Wilayah</div>
+      <h2>Seluruh Jabodetabek</h2>
+    </div>
+    <p class="sec-desc">Dari lima wilayah Jakarta sampai kota-kota penyangga di sekitarnya.</p>
+  </div>
+
+  <div class="coverage-wrap">
+    <div class="region-list">
+      <div class="region">Jakarta Utara <span class="tag2">JAKUT</span></div>
+      <div class="region">Jakarta Selatan <span class="tag2">JAKSEL</span></div>
+      <div class="region">Jakarta Barat <span class="tag2">JAKBAR</span></div>
+      <div class="region">Jakarta Pusat <span class="tag2">JAKPUS</span></div>
+      <div class="region">Jakarta Timur <span class="tag2">JAKTIM</span></div>
+      <div class="region">Bogor · Depok <span class="tag2">BODE</span></div>
+      <div class="region">Tangerang <span class="tag2">TANG</span></div>
+      <div class="region">Bekasi <span class="tag2">BEKASI</span></div>
+    </div>
+    <div class="coverage-note">
+      <span class="brass-dot">●</span> <strong>Tidak menemukan wilayah Anda di daftar?</strong><br><br>
+      Cakupan layanan mencakup seluruh area Jabodetabek — kirimkan lokasi dan kebutuhan Anda melalui WhatsApp, dan akan langsung ditindaklanjuti secara personal, tanpa perantara.
+    </div>
+  </div>
+</section>
+
+<section class="contact" style="padding:0;">
+  <div class="wrap contact-inner">
+    <div>
+      <h2>Siap mencari properti yang tepat?</h2>
+      <p class="lede2">Ceritakan kebutuhan Anda — jenis properti, wilayah, dan budget — dan akan dibantu carikan pilihan yang sesuai.</p>
+    </div>
+    <div class="contact-card">
+      <div class="label">Hubungi Langsung</div>
+      <a class="phone" href="tel:+6281210301455">+62 812-1030-1455</a>
+      <a class="btn-primary" href="https://wa.me/6281210301455" target="_blank" rel="noopener">Chat WhatsApp →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div>© 2026 John Susanto — Konsultan Properti</div>
+  <div>Jakarta, Indonesia</div>
+</footer>
+
+</body>
+</html>
