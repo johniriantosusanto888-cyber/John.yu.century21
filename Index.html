@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Susanto — Konsultan Properti Jabodetabek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141210;
+    --ink-2:#1d1a17;
+    --paper:#ede6d8;
+    --paper-dim:#c9bfab;
+    --brass:#b3894f;
+    --brass-bright:#d4ab6f;
+    --brick:#6f3527;
+    --line: rgba(237,230,216,0.16);
+    --line-strong: rgba(237,230,216,0.32);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .display{font-family:'Fraunces', serif;}
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+
+  a{color:inherit;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:linear-gradient(to bottom, rgba(20,18,16,0.92), rgba(20,18,16,0));
+    padding:22px 0;
+  }
+  nav.wrap{display:flex; align-items:center; justify-content:space-between;}
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-size:19px; letter-spacing:0.02em;}
+  .brand .mark{
+    width:26px;height:26px;border:1px solid var(--brass-bright);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono';font-size:11px;color:var(--brass-bright);
+  }
+  nav ul{list-style:none; display:flex; gap:34px; font-size:13.5px;}
+  nav a{text-decoration:none; opacity:0.78; transition:opacity .2s;}
+  nav a:hover{opacity:1;}
+  .nav-cta{
+    border:1px solid var(--line-strong); padding:9px 18px; font-size:13px;
+    text-decoration:none; transition:border-color .2s, background .2s;
+  }
+  .nav-cta:hover{border-color:var(--brass-bright); background:rgba(179,137,79,0.1);}
+  @media (max-width:760px){ nav ul{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items:stretch;
+  }
+  .hero-copy{
+    display:flex; flex-direction:column; justify-content:center;
+    padding: 140px 0 80px;
+    position:relative; z-index:2;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--brass-bright); display:flex; align-items:center; gap:12px; margin-bottom:28px;
+  }
+  .eyebrow::before{content:''; width:34px; height:1px; background:var(--brass-bright);}
+  h1{
+    font-weight:400; font-size:clamp(40px, 5.4vw, 74px); line-height:1.02; letter-spacing:-0.01em;
+    max-width:600px;
+  }
+  h1 em{font-style:italic; font-weight:300; color:var(--brass-bright);}
+  .lede{
+    margin-top:26px; max-width:460px; font-size:16.5px; line-height:1.65; color:var(--paper-dim);
+  }
+  .hero-actions{ margin-top:44px; display:flex; align-items:center; gap:26px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--brass-bright); color:var(--ink); text-decoration:none;
+    padding:15px 30px; font-size:14px; font-weight:600; letter-spacing:0.01em;
+    display:inline-flex; align-items:center; gap:10px;
+    transition:transform .25s ease, background .25s ease;
+  }
+  .btn-primary:hover{ background:#e6c084; transform:translateX(3px);}
+  .btn-secondary{
+    text-decoration:none; font-size:14px; color:var(--paper); opacity:0.85; display:flex; align-items:center; gap:8px;
+    border-bottom:1px solid var(--line-strong); padding-bottom:3px;
+  }
+  .btn-secondary:hover{ opacity:1; border-color:var(--brass-bright);}
+
+  .hero-figure{
+    position:relative;
+    overflow:hidden;
+    background:#000;
+  }
+  .hero-figure img{
+    width:100%; height:100%; object-fit:cover; object-position:top center;
+    filter: grayscale(1) contrast(1.08) brightness(0.92);
+    display:block;
+  }
+  .hero-figure::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(to right, var(--ink) 0%, rgba(20,18,16,0) 14%),
+               linear-gradient(to top, rgba(20,18,16,0.75) 0%, rgba(20,18,16,0) 32%);
+  }
+  .hero-figure .cardline{
+    position:absolute; bottom:32px; left:32px; right:32px; z-index:3;
+    display:flex; justify-content:space-between; align-items:flex-end;
+    font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--paper-dim);
+    letter-spacing:0.05em; border-top:1px solid var(--line); padding-top:14px;
+  }
+  .cardline strong{ display:block; font-family:'Fraunces'; font-size:20px; color:var(--paper); font-style:normal; letter-spacing:0; margin-bottom:2px;}
+
+  @media (max-width: 900px){
+    .hero{ grid-template-columns:1fr; }
+    .hero-figure{ height:52vh; order:-1; }
+    .hero-copy{ padding:118px 0 60px; }
+    .hero-figure::after{ background:linear-gradient(to top, var(--ink) 0%, rgba(20,18,16,0.15) 55%, rgba(20,18,16,0) 90%); }
+  }
+
+  /* ---------- LEAD FORM ---------- */
+  .lead-form{
+    margin-top:45px;
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--line);
+    padding:30px;
+    max-width:540px;
+    backdrop-filter:blur(8px);
+  }
+  .lead-form h3{
+    font-family:'Fraunces';
+    font-size:30px;
+    font-weight:400;
+    margin-bottom:25px;
+  }
+  .form-group{
+    margin-bottom:18px;
+  }
+  .form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-size:13px;
+    color:var(--paper-dim);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea{
+    width:100%;
+    padding:14px;
+    background:#1b1917;
+    color:var(--paper);
+    border:1px solid var(--line);
+    font-size:15px;
+    font-family:inherit;
+    outline:none;
+    transition:.25s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus{
+    border-color:var(--brass-bright);
+  }
+  .lead-form button{
+    margin-top:10px;
+    width:100%;
+    justify-content:center;
+    cursor:pointer;
+    border:none;
+  }
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <nav class="wrap">
+    <div class="brand">
+      <div class="mark">JS</div>
+      <span>John Susanto</span>
+    </div>
+    <ul>
+      <li><a href="#">Beranda</a></li>
+      <li><a href="#">Tentang</a></li>
+      <li><a href="#">Properti</a></li>
+      <li><a href="#">Testimoni</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Hubungi Saya</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-copy wrap">
+    <div class="eyebrow">Konsultan Properti</div>
+    <h1 class="display">Temukan Properti <em>Impian</em> Anda di Jabodetabek</h1>
+    <p class="lede">Saya membantu Anda menemukan rumah, apartemen, ruko, atau tanah terbaik dengan harga terbaik — dari survei hingga serah terima kunci.</p>
+
+    <!-- LEAD FORM -->
+    <div class="lead-form">
+      <h3>Temukan Properti Impian Anda</h3>
+
+      <div class="form-group">
+        <label>1. Jenis Transaksi</label>
+        <select id="transaksi">
+          <option value="Beli">Beli</option>
+          <option value="Sewa">Sewa</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>2. Jenis Properti</label>
+        <select id="properti">
+          <option>Rumah</option>
+          <option>Ruko</option>
+          <option>Apartemen</option>
+          <option>Gudang</option>
+          <option>Tanah</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>3. Wilayah yang Dicari</label>
+        <input type="text" id="wilayah" placeholder="Contoh: Pantai Indah Kapuk">
+      </div>
+
+      <div class="form-group">
+        <label>4. Budget</label>
+        <input type="text" id="budget" placeholder="Contoh: Rp2 Miliar">
+      </div>
+
+      <div class="form-group">
+        <label>5. Kapan ingin transaksi?</label>
+        <select id="waktu">
+          <option>Secepatnya</option>
+          <option>Dalam 1 Bulan</option>
+          <option>Dalam 3 Bulan</option>
+          <option>Masih Survei</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>6. Luas / Spesifikasi yang Diharapkan</label>
+        <input type="text" id="luas" placeholder="Contoh: Minimal 120 m², 3 Kamar, 2 Kamar Mandi">
+      </div>
+
+      <div class="form-group">
+        <label>7. Fasilitas & Lokasi Prioritas</label>
+        <textarea id="fasilitas" rows="2" placeholder="Contoh: Dekat tol, ada kolam renang, dekat sekolah, security 24 jam..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>8. Metode Pembayaran</label>
+        <select id="pembayaran">
+          <option>Tunai / Cash</option>
+          <option>KPR</option>
+          <option>Tunai Bertahap</option>
+          <option>Belum Tahu / Butuh Konsultasi</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>9. Nomor WhatsApp / Telepon</label>
+        <input type="tel" id="kontak" placeholder="Contoh: 0812-3456-7890">
+      </div>
+
+      <div class="form-group">
+        <label>10. Catatan Tambahan</label>
+        <textarea id="catatan" rows="3" placeholder="Minimal 3 kamar, SHM, dekat tol..."></textarea>
+      </div>
+
+      <button class="btn-primary" onclick="kirimWhatsApp()">
+        Cari Properti via WhatsApp →
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-figure">
+    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&h=1200&fit=crop" alt="Properti Jabodetabek">
+    <div class="cardline">
+      <div><strong>500+</strong> Properti Terjual</div>
+      <div><strong>12+</strong> Tahun Pengalaman</div>
+    </div>
+  </div>
+</section>
+
+<script>
+function kirimWhatsApp(){
+  const transaksi=document.getElementById("transaksi").value;
+  const properti=document.getElementById("properti").value;
+  const wilayah=document.getElementById("wilayah").value;
+  const budget=document.getElementById("budget").value;
+  const waktu=document.getElementById("waktu").value;
+  const luas=document.getElementById("luas").value;
+  const fasilitas=document.getElementById("fasilitas").value;
+  const pembayaran=document.getElementById("pembayaran").value;
+  const kontak=document.getElementById("kontak").value;
+  const catatan=document.getElementById("catatan").value;
+
+  const pesan=
+`Halo John,
+
+Saya ingin mencari properti.
+
+🏠 Jenis Transaksi : ${transaksi}
+🏢 Jenis Properti : ${properti}
+📍 Wilayah : ${wilayah}
+💰 Budget : ${budget}
+📅 Rencana Transaksi : ${waktu}
+📐 Luas/Spesifikasi : ${luas}
+🎯 Fasilitas Prioritas : ${fasilitas}
+💳 Metode Pembayaran : ${pembayaran}
+📞 Nomor Kontak : ${kontak}
+📝 Catatan :
+${catatan}
+
+Mohon dibantu rekomendasi properti yang sesuai.
+
+Terima kasih.`;
+
+  window.open(
+    "https://wa.me/6281210301455?text="+encodeURIComponent(pesan),
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
