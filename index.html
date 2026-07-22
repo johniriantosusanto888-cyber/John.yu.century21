@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Susanto — Konsultan Properti Jabodetabek</title>
+<meta name="description" content="Landing page konsultan properti Jabodetabek">
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#141210;color:#ede6d8}
+header{padding:18px 24px;background:#1b1917;position:sticky;top:0}
+nav a{color:#ede6d8;text-decoration:none;margin-right:18px}
+.hero{padding:70px 24px;max-width:1100px;margin:auto}
+.card{background:#222;padding:24px;border-radius:10px}
+input,select,textarea{width:100%;padding:10px;margin:8px 0 16px}
+button{padding:12px 18px;background:#d4ab6f;border:none;cursor:pointer}
+section{max-width:1100px;margin:40px auto;padding:0 24px}
+footer{padding:30px;text-align:center;background:#1b1917}
+</style>
+</head>
+<body>
+<header><nav><a href="#hero">Beranda</a><a href="#tentang">Tentang</a><a href="#layanan">Layanan</a><a href="#kontak">Kontak</a></nav></header>
+<section class="hero" id="hero">
+<h1>Temukan Properti Impian Anda</h1>
+<p>Saya membantu pembelian, penjualan, dan penyewaan properti di Jabodetabek.</p>
+<div class="card">
+<h2>Form Pencarian Properti</h2>
+<select id="transaksi"><option>Beli</option><option>Sewa</option></select>
+<select id="properti"><option>Rumah</option><option>Apartemen</option><option>Ruko</option><option>Tanah</option></select>
+<input id="wilayah" placeholder="Wilayah">
+<input id="budget" placeholder="Budget">
+<input id="kontak" placeholder="WhatsApp">
+<textarea id="catatan" placeholder="Catatan"></textarea>
+<button onclick="wa()">Kirim ke WhatsApp</button>
+</div>
+</section>
+<section id="tentang"><h2>Tentang John Susanto</h2><p>Konsultan properti yang membantu menemukan properti sesuai kebutuhan dan anggaran.</p></section>
+<section id="layanan"><h2>Layanan</h2><ul><li>Beli</li><li>Jual</li><li>Sewa</li><li>Konsultasi</li></ul></section>
+<section><h2>FAQ</h2><p><b>Apakah ada biaya konsultasi?</b><br>Konsultasi awal gratis.</p></section>
+<footer id="kontak">©2026 John Susanto</footer>
+<script>
+function wa(){
+const p=`Halo John,%0ASaya ingin mencari properti.%0AProperti: ${properti.value}%0AWilayah: ${wilayah.value}%0ABudget: ${budget.value}%0AKontak: ${kontak.value}%0ACatatan: ${catatan.value}`;
+window.open("https://wa.me/6281210301455?text="+p,"_blank");
+}
+</script>
+</body></html>
